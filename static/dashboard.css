@@ -1,0 +1,23 @@
+.two_btn{
+    display: flex;
+    gap: 1rem;
+}
+
+.two_btn button{
+    border-radius: 1.25rem;
+    font-weight: 600;
+    height: 3rem;
+    padding: 0.25rem;
+    align-items: center;
+}
+
+.two_btn button a{
+    text-decoration: none;
+    color: white;   
+}
+
+h1{
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+

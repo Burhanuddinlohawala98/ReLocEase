@@ -1,11 +1,68 @@
-<!-- ================================================================================
-File: templates/index.html
+<!-- File: templates/index.html
 Responsibility: Application Landing Page Interface
 Team Member Assigned: Member 1 (Frontend UI Lead)
---------------------------------------------------------------------------------
+
 Description:
     The main entrance page displaying three distinct action buttons:
     1. "Search House" -> Leads to /search
     2. "Login as Landlord" -> Leads to /login
-    3. "Sign Up as Landlord" -> Leads to /signup
-================================================================================ -->
+    3. "Sign Up as Landlord" -> Leads to /signup -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReLocEase - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/header-footer.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar d-flex flex-column align-items-center justify-content-center">
+                    <a href="#main-content" class="nav-link">Skip to the main content</a>
+                    <a href="{{url_for('index')}}" class="navbar-brand">
+                        <img src="../static/images/ReLocEase - Logo.png" alt="ReLocEase">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12 my-5">
+            <main id="main-content">
+            <h1 class="text-center">Welcome to the <span>ReLocEase</span></h1>
+            <div class="col-md-9 offset-md-2">
+                <p class="text-center">Welcome to RelocEase, your smart relocation and house rental discovery platform. We connect relocating individuals directly with property owners, making it seamless to find your next home, explore district-based listings, and manage properties without hassle.</p>
+            </div>
+            
+            <div class="col-md-6 offset-md-3 three_buttons w-100 d-flex justify-content-center mt-5">
+                <button class="btn-primary"><a href="{{url_for('login')}}">Login as owner</a></button>
+                <button class="btn-primary"><a href="{{url_for('signup')}}">Signup as owner</a></button>
+                <button class="btn-secondary"><a href="{{url_for('search')}}">Search Home</a></button>
+            </div>
+        </main>
+        </div>    
+        </div> 
+    </div>
+    <div class="footer-container bg-dark">
+        <div class="col-md-6">
+            <a href="{{url_for('index')}}" class="footer-link">
+                <img src="../static/images/ReLocEase - Logo.png" alt="ReLocEase" class="foot-img">
+            </a>
+        </div>
+        <div class="col-md-6 social">
+            <ul class="mt-5">
+                <li><a href="#">Twitter-X</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Gmail</a></li>
+            </ul>   
+        </div> 
+    </div>
+</body>
+</html>

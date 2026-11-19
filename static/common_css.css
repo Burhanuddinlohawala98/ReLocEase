@@ -1,0 +1,29 @@
+.form_area button{
+    border-radius: 1.25rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem; 
+}
+}
+
+.form-control{
+    background-color: transparent;
+    color: black;
+    font-weight: 500;
+    outline: black;
+    border-radius: 1.25rem;
+}
+
+.form-contrl:focus{
+    outline: black;
+}
+
+.form-label{
+    font-weight: 600;
+    color: black;
+    font-size: 1.25rem;
+}
+
+h1{
+        font-weight: 700;
+        font-size: 3.5rem;
+    }

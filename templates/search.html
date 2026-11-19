@@ -9,3 +9,89 @@ Description:
     Renders property cards dynamically from Flask using Jinja2 syntax.
 
 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReLocEase - Search Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/header-footer.css">
+    <link rel="stylesheet" href="../static/common_css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar">
+                    <a href="#main-content" class="nav-link">Skip to the main content</a>
+                    <a href="{{url_for('index')}}" class="navbar-brand">
+                        <img src="../static/images/ReLocEase - Logo.png" alt="ReLocEase">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12 my-5">
+            <main id="main-content">
+            <h1 class="text-center mb-5">ReLocEase - Search Home</h1>
+                <div class="form_area col-md-6 offset-md-3">
+            <form action="/search" method="get">
+                <div class="mb-2">
+                    <label for="district" class="form-label">District Name</label>
+                    <input type="text" class="form-control" placeholder="Enter district name: " id="district" required name="district">
+                </div>
+                <div class="mb-2">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" placeholder="Enter state: " id="state" required name="state">
+                </div>
+                <button class="btn-primary w-100" type="submit">Search Home</button>
+            </form>
+            </div>
+            <div class="col-md-12 my-5">
+                {%if district and state %}
+                <h2>Search Result for: {{district}},{{state}}</h2>
+                {% if properties %}
+                <div class="row">
+                    {% for property in properties %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card p-3">
+                            <h3>{{property.house_type}}</h3>
+                            <p class="mb-1">District:{{property.district}},{{property.state}}</p>
+                            <p class="mb-1">Address:{{property.address}}</p>
+                            <p class="mb-1">Rent: ₹ {{property.rent}}</p>
+                            <p class="mb-1">Phone: {{property.phone}}</p>
+                            <p class="mb-1">Email: {{property.contact_email}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-muted">No properties found.</p>
+                {% endif %}
+                {% endif %}
+
+            </div>
+        </main>
+        </div>    
+        </div> 
+    </div>
+    <div class="footer-container bg-dark">
+        <div class="col-md-6">
+            <a href="{{url_for('index')}}" class="footer-link">
+                <img src="../images/ReLocEase - Logo.png" alt="ReLocEase" class="foot-img">
+            </a>
+        </div>
+        <div class="col-md-6 social">
+            <ul class="mt-5">
+                <li><a href="#">Twitter-X</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Gmail</a></li>
+            </ul>   
+        </div> 
+    </div>
+</body>
+</html>

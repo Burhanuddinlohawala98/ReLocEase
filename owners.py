@@ -9,3 +9,4 @@ Description:
     Handles password hashing and sets user session variables upon successful login.
 
 """
+

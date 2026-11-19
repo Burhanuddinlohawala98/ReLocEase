@@ -1,0 +1,82 @@
+<!-- File: templates/index.html
+Responsibility: Application Landing Page Interface
+Team Member Assigned: Member 1 (Frontend UI Lead)
+
+Description:
+    The main entrance page displaying three distinct action buttons:
+    1. "Search House" -> Leads to /search
+    2. "Login as Landlord" -> Leads to /login
+    3. "Sign Up as Landlord" -> Leads to /signup -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReLocEase - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/dashboard.css">
+    <link rel="stylesheet" href="../static/header-footer.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar">
+                    <a href="#main-content" class="nav-link">Skip to the main content</a>
+                    <a href="{{url_for('index')}}" class="navbar-brand">
+                        <img src="../static/images/ReLocEase - Logo.png" alt="ReLocEase">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-12 my-5 ms-5">
+            <main id="main-content">
+            <h1 class="mb-2">Welcome, {{ name }}</h1>
+            <div class="col-md-12 two_btn my-5">
+                <button class="btn-primary"><a href="{{url_for('home')}}">Add Home</a></button>
+            </div>
+            <div class="col-md-12">
+                <h2>Your Listed Homes</h2>
+                {%if properties%}
+                <div class="row">
+                    {%for property in properties %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card p-3">
+                            <h3>{{property.house_type}}</h3>
+                            <p class="mb-1">District:{{property.district}},{{property.state}}</p>
+                            <p class="mb-1">Addess:{{property.address}}</p>
+                            <p class="mb-1">Rent: ₹{{property.rent}}</p>
+                            <p class="mb-1">Contact: phone {{property.phone}} email {{property.contact_email}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+               {% else %}
+            <p class="text-muted">You haven't addded any home for rent!</p>
+            {% endif %}
+            </div>
+        </main>
+        </div>    
+        </div> 
+    </div>
+    <div class="footer-container bg-dark">
+        <div class="col-md-6">
+            <a href="{{url_for('index')}}" class="footer-link">
+                <img src="../static/images/ReLocEase - Logo.png" alt="ReLocEase" class="foot-img">
+            </a>
+        </div>
+        <div class="col-md-6 social">
+            <ul class="mt-5">
+                <li><a href="#">Twitter-X</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Gmail</a></li>
+            </ul>   
+        </div> 
+    </div>
+</body>
+</html>
